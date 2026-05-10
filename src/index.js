@@ -1,5 +1,4 @@
 import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js"
-// import DOMPurify from 'dompurify'
 import renderBubbles from "./utils/renderBubbles.js"
 import { showNotice } from "./utils/showNotice.js"
 
@@ -13,10 +12,8 @@ langOptions.forEach(option => {
     option.addEventListener("click", () => {
         langOptions.forEach(i => i.classList.remove("active"))
         option.classList.add("active")
-        console.log(option.className)
         selectedLanguage = option.dataset.lang
         submitBtn.classList.remove("disabled")
-        console.log(selectedLanguage)
     })
 })
 
