@@ -1,0 +1,283 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: montserrat, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.disabled {
+    opacity: 0.35;
+}
+
+.notice {
+    display: none;
+    transition: all 0.3s ease;
+    color: red;
+    font-size: 0.8em;
+    margin-top: 1em;
+    text-align: center;
+}
+
+.notice.visible {
+    display: block;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(./assets/worldmap.png), #001e35;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 215px;
+    z-index: 100;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+}
+
+header img {
+    height: 5em;
+}
+
+.header-text h1 {
+    font-size: 2em;
+    color: #32CD32;
+}
+
+.header-text p {
+    font-size: 0.75em;
+    color: #fff;
+}
+
+main {
+    margin-top: 215px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#select-lang {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 1em;
+}
+
+.options {
+    display: flex;
+    gap: 2em;
+}
+
+.lang-option.active {
+    border: 2px solid #000000;
+    padding: 0.5em;
+    transform: scale(1.1);
+}
+
+.lang-img {
+    width: 3em;
+    cursor: pointer;
+    box-shadow: 3px 3px 12px #00000033;
+}
+
+.lang-text {
+    display: none;
+}
+
+.chat-area {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: #001e3518;
+}
+
+.chat-area-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75em;
+    padding: 2.5em 1.25em;
+    width: 100%;
+}
+
+
+#input-form {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+
+#input-form input {
+    width: 80%;
+    max-width: 55ch;
+    padding: 0.75em;
+    font-size: 1em;
+    border-radius: 0.5em;
+    border: none;
+    box-shadow: 3px 3px 12px #00000033;
+}
+
+#input-form input:focus {
+    outline: none;
+    border: 1.5px solid #32CD32;
+}
+
+#input-form .send-icon {
+    margin-left: 0.5em;
+    padding: 0.5em;
+    border: none;
+    border-radius: 0.5em;
+    box-shadow: 3px 3px 12px #00000033;
+    cursor: pointer;
+    background: #32CD32;
+}
+
+/* bubble shape design */
+.chatbubble {
+  color: #fff;
+  font-size: 18px;
+  width: 80%;
+  max-width: 55ch;
+  text-align: left;
+}
+.chatbubble {
+  /* triangle dimension */
+  --b: 2em; /* base */
+  --h: 0.5em; /* height */
+
+  --p: 0%; /* triangle position (0%:left 100%:right) */
+  --r: 0.5em; /* the radius */
+  --c: #32CD32;
+
+  padding: 1em;
+  border-radius: var(--r) var(--r) min(var(--r),100% - var(--p) - var(--b)/2) min(var(--r),var(--p) - var(--b)/2)/var(--r);
+  clip-path: polygon(0 100%,0 0,100% 0,100% 100%,
+    min(100%,var(--p) + var(--b)/2) 100%,
+    var(--p) calc(100% + var(--h)),
+    max(0%  ,var(--p) - var(--b)/2) 100%);
+  background: var(--c);
+  border-image: conic-gradient(var(--c) 0 0) fill 0/
+    var(--r) calc(100% - var(--p) - var(--b)/2) 0 calc(var(--p) - var(--b)/2)/
+    0 0 var(--h) 0;
+}
+
+.user-bubble {
+  --c: #057FDD;
+  --p: 100%;
+  align-self: flex-end;
+}
+
+
+/* media queries */
+@media (min-width: 600px) {
+    header {
+        height: 220px;
+    }
+
+    header img {
+        height: 7.5em;
+    }
+    .header-text h1 {
+        font-size: 3.5em;
+    }
+    .header-text p {
+        font-size: 1em;
+    }
+    .lang-p {
+        display: inline-block;
+    }
+
+    main {
+        margin-top: 220px;
+    }
+
+    .chat-area-inner {
+        max-width: 900px;
+        border-inline: 2px solid #001e3518;
+        padding: 2.5em;
+    }
+}
+
+@media (min-width: 768px) {
+    .lang-text {
+        display: inline-block;
+        margin-left: 8px;
+    }
+
+    .lang-option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+
+/* CHAT BUBBLE CONTENT */
+.chatbubble > h1,
+.chatbubble > h2,
+.chatbubble > h3,
+.chatbubble > h4 {
+    background: #fff;
+    color: #32CD32;
+    padding: 0.25em 1em;
+    border-bottom: 2px solid #32CD32;
+    margin: 0.5em 0;
+}
+
+.chatbubble :is(h1, h2, h3, h4):first-child {
+    margin-top: 0;
+}
+
+.chatbubble p {
+    font-size: 0.8em;
+    line-height: 1.5em;
+}
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 1em auto;
+  color: black;
+  table-layout: fixed;
+}
+
+tr {
+    font-weight: 300;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+td {
+    vertical-align: top;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+th {
+  padding: 12px 8px;
+  text-align: left;
+  background-color: #fff;
+  
+}

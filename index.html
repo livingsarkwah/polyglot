@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Polyglot</title>
+        <link rel="stylesheet" href="./src/index.css">
+        <link rel="shortcut icon" href="./assets/parrot.png" type="image/x-icon">
+    </head>
+    <body>
+        <header>
+           <div class="header-inner">
+                <img src="./assets/parrot.png" alt="cheerful parrot" class="logo">
+                <div class="header-text">
+                    <h1>Polyglot</h1>
+                    <p>Perfect Translation Every Time</p>
+                </div>
+           </div>
+        </header>
+        <main>
+            <div id="select-lang">
+                <h3>Select Language</h3>
+                <div class="options">
+                    <div class="lang-option" data-lang="French">
+                        <img src="./assets/fr-flag.png" alt="France Logo" class="lang-img">
+                        <span class="lang-text">French</span>
+                    </div>
+
+                    <div class="lang-option" data-lang="Spanish">
+                        <img src="./assets/sp-flag.png" alt="Spain Logo" class="lang-img">
+                        <span class="lang-text">Spanish</span>
+                    </div>
+                    
+                    <div class="lang-option" data-lang="Japanese">
+                        <img src="./assets/jpn-flag.png" alt="Japan Logo" class="lang-img">
+                        <span class="lang-text">Japanese</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="chatbox">
+                <div class="chat-area">
+                    <div class="chat-area-inner" id="chat-area-inner">
+                        <div class="ai-bubble chatbubble">Hello there! Welcome to Polyglot. Your favourite (or soon to be) translator. We support French, Spanish, and Japanese. Just input the English sentence you want translated and chat away!!!</div>
+
+                        <!-- <div class="user-bubble chatbubble">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt saepe eligendi minima optio ex, exercitationem harum fugit.</div> -->
+        
+                    </div>
+                </div>
+                <div id="notice" class="notice"></div>
+                <form id="input-form">
+                    <input type="text" placeholder="Type your message here..." id="input-text" autocomplete="off" required>
+                    <button type="submit" class="send-icon disabled" id="submit-btn">
+                        <img src="./assets/send-btn.png" alt="send button">
+                    </button>
+                </form>
+            </div>
+        </main>
+
+        <!-- scripts here -->
+        <script src="./src/index.js" type="module"></script>
+    </body>
+</html>
