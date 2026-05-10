@@ -37,7 +37,7 @@ async function main(text, language) {
     try {
         const userMsg  = `<p>${text}</p>`
         renderBubbles(userMsg, "user")
-        const res = await fetch("/api/chat", {
+        const res = await fetch("http://localhost:3000/api/chat", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -63,6 +63,6 @@ async function main(text, language) {
 
         renderBubbles(marked.parse(reply))
     } catch (error) {
-        console.error(error)
+        console.error("CHAT ERROR:", error)
     }
 }
