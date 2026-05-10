@@ -1,14 +1,10 @@
 import express from "express"
-import cors from "cors"
 import getAiClient from "./getAiClient.js"
 
 
 const app = express()
-
-// app.use('/src/utils', express.static('utils'))
-// app.use(express.static("public"))
 app.use(express.json())
-app.use(cors())
+
 
 app.post("/api/chat", async (req, res) => {
     try {
