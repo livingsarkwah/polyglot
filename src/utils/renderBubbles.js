@@ -5,7 +5,6 @@ export default function renderBubbles(content, bubbleType = "ai") {
         bubble.innerHTML = content
 
         document.getElementById('chat-area-inner').append(bubble)
-        console.log('Bubbles created')
     } catch (error) {
         console.error(error)
     }
