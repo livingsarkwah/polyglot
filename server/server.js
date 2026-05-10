@@ -8,9 +8,10 @@ app.use(express.json())
 
 app.post("/api/chat", async (req, res) => {
     try {
+        console.log("Received request with body:", req.body)
         const { text, language } = req.body
         const translation = await getAiClient(language, text)
-        
+        console.log("Translation received:", translation)
         res.json({
             reply: translation
         })

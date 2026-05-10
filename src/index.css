@@ -34,7 +34,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(./assets/worldmap.png), #001e35;
+    background: url(/assets/worldmap.png), #001e35;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

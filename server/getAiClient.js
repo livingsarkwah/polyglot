@@ -39,14 +39,16 @@ export default async function getAiClient(language, text) {
                 messages: messages,
             })
             const translatedText = response.choices[0].message.content
+            console.log("AI response:", translatedText.split("\n").slice(0, 3).join("\n") + "\n...") // Log only the first 3 lines for brevity
             return translatedText
+
         } else {
             console.log('No API key provided. Returning dummy translation.')
             return `Dummy translation of "${text}" to ${language}`
         }
 
     } catch (error) {
-        console.error(error)
+        console.error("Translation error:", error)
         throw new Error("Translation failed")
     }
 }
