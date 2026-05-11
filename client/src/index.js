@@ -37,7 +37,7 @@ async function main(text, language) {
     try {
         const userMsg  = `<p>${text}</p>`
         renderBubbles(userMsg, "user")
-        const res = await fetch("http://localhost:3000/api/chat", {
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/chat`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
